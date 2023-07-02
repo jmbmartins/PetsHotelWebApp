@@ -2,6 +2,8 @@
 
 This project consists of a web application that accesses RESTful web services developed with the Spring Framework. The application allows managing the services provided by an **Animal Hotel**. Data persistence is done through MySQL.
 
+Branch 'final' -> Represents the **final version**. 
+
 ## Application Features
 
 - Profile Selection: The application allows choosing between two user profiles, Hotel Administrator and Customer.
