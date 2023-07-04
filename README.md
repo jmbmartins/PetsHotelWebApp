@@ -55,20 +55,15 @@ mvn spring-boot:run
 
 Click the image below to watch a demo video showcasing the features and functionality of the application:
 
-[![Pets Hotel Demonstration Video](https://www.youtube.com/watch?v=ymPkIk0Zl0Y)](https://www.youtube.com/watch?v=ymPkIk0Zl0Y)
+[![Pets Hotel Demonstration Video](https://img.youtube.com/vi/ymPkIk0Zl0Y/0.jpg)](https://www.youtube.com/watch?v=ymPkIk0Zl0Y)
 
 
-First Part [0:00m - 1:11m]: 
-- User Portal.
 
-Second Part [1:11m - 2:15m]:
-- Admin Portal
+In the demo, we have divided the presentation into two parts to provide a clear focus on user experience and admin experience separately.
 
 
 
 Feel free to reach out if you have any questions or need further assistance.
-
-
 
 
 
