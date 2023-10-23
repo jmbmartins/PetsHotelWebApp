@@ -38,11 +38,9 @@ To run this application, follow the instructions below:
 git clone [repository-url]
 ```
 
-5. Locate yourself on branch named 'final'.
+5. In the src/main/resources/application.properties file, configure the database connection properties. Make sure to provide the correct URL, username, and password.
 
-6. In the src/main/resources/application.properties file, configure the database connection properties. Make sure to provide the correct URL, username, and password.
-
-7. Open the terminal or command prompt, navigate to the root directory of the cloned project, and run the following command to compile and run the application:
+6. Open the terminal or command prompt, navigate to the root directory of the cloned project, and run the following command to compile and run the application:
 
 ```bash
 mvn spring-boot:run
