@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Pet Hotel - Client Page</title>
+</head>
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+  }
+
+  h1 {
+      color: #333;
+  }
+
+  form {
+      margin-top: 20px;
+  }
+
+  label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="phone"] {
+      width: 250px;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  button[type="submit"] {
+      padding: 8px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      margin-top: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+      background-color: #45a049;
+  }
+  .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+option {
+  font-size: 16px;
+}
+
+</style>
+<body>
+  <h1>Register your menu selection</h1>
+
+  <!-- Display the error message if present -->
+  <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+    <p th:text="${errorMessage}"></p>
+</div>
+    
+<form action="#" th:action="@{/vcsaveFeeding}" th:object="${new_feeding}" method="POST" th:if="${ListPets != null and ListPets.size() > 0}">
+  <label for="petName">Pet Name:</label>
+  <select id="petId" name="petId" th:field="*{pet.id}" required>
+    <option value="">Select pet name</option>
+    <option th:each="pet: ${ListPets}" th:value="${pet.id}" th:text="${pet.name}" required></option>
+  </select><br>
+  <label>Type of food</label>
+  <select id="type" name="type" th:field="*{typeFood}" required>
+    <option value="">Select the food's type</option>
+    <option value="Dry Food">Dry Food</option>
+    <option value="Canned Food">Canned Food</option>
+    <option value="Raw Food">Raw Food</option>
+  </select>
+  <button type="submit">Register Feeding</button>
+</form>
+<div th:unless="${ListPets != null and ListPets.size() > 0}">
+  <p>No pets available to select.</p>
+</div>
+
+
+</div>
+</body>
+</html>

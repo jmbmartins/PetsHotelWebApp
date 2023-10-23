@@ -98,14 +98,16 @@ a:hover {
       <option th:each="pet: ${ListPets}" th:value="${pet.id}" th:text="${pet.name}" required></option>
   </select><br>
  <label>Type of food</label>
-        <select id="FeedingId" name="feedingTypeFood" th:field="*{typeFood}" required>
-            <option value="">Select the food's type</option>
-            <option th:each="feeding : ${ListTypeFood}" th:text="*{typeFood}" required></option>
-        </select><br>
+ <select id="type" name="type" th:field="*{typeFood}" required>
+  <option value="">Select the food's type</option>
+  <option value="Dry Food">Dry Food</option>
+  <option value="Canned Food">Canned Food</option>
+  <option value="Raw Food">Raw Food</option>
+</select>
   <button type="submit">Register Feeding</button>
 </form>
  <hr>
- <a th:href="@{/showLodgings}"> Back to Feeding's List</a>
+ <a th:href="@{/showFeedings}"> Back to Feeding's List</a>
 </div>
 </body>
 </html>

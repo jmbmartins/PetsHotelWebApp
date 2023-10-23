@@ -91,21 +91,23 @@ a:hover {
  <hr>
  <h2 align = "center" >Update a Feeding</h2>
  <hr>
- <form action="#" th:action="@{/saveFeeding}" th:object="${new_feeding}" method="POST">
+ <form action="#" th:action="@{/saveFeeding}" th:object="${update_feed}" method="POST">
   <label for="petName">Pet Name:</label>
   <select id="petId" name="petId" th:field="*{pet.id}" required>
       <option value="">Select pet name</option>
       <option th:each="pet: ${ListPets}" th:value="${pet.id}" th:text="${pet.name}" required></option>
   </select><br>
  <label>Type of food</label>
-        <select id="FeedingId" name="feedingTypeFood" th:field="*{typeFood}" required>
-            <option value="">Select the food's type</option>
-            <option th:each="feeding : ${ListTypeFood}" th:text="*{typeFood}" required></option>
-        </select><br>
+        <select id="type" name="type" th:field="*{typeFood}" required>
+          <option value="">Select the food's type</option>
+          <option value="Dry Food">Dry Food</option>
+          <option value="Canned Food">Canned Food</option>
+          <option value="Raw Food">Raw Food</option>
+      </select>
   <button type="submit">Update Feeding</button>
 </form>
  <hr>
- <a th:href="@{/showLodgings}"> Back to Feeding's List</a>
+ <a th:href="@{/showFeeding}"> Back to Feeding's List</a>
 </div>
 </body>
 </html>

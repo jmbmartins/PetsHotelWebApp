@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Feeding Page</title>
+</head>
+<style>
+  body {
+      background-color: #f3f3f3;
+      font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333333;
+  }
+  
+  h2 {
+      margin-top: 40px;
+      color: #555555;
+  }
+  
+  h3 {
+      margin-bottom: 10px;
+      color: #555555;
+  }
+  
+  p {
+      line-height: 1.5;
+      color: #777777;
+  }
+  
+  table {
+      border-collapse: collapse;
+      width: 100%;
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+  }
+  
+  th, td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #dddddd;
+  }
+  
+  th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      color: #333333;
+  }
+
+  .reserve_link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.reserve_link:hover {
+  background-color: #ff9900;
+}
+.delete-link {
+  color: red;
+  text-decoration: none;
+}
+
+.delete-link:hover {
+  text-decoration: underline;
+}
+
+.change-info-link {
+  /* Your CSS properties here */
+  /* For example: */
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.back-to-main-button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #5f5f5f;
+  color: #fff;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.back-to-main-button:hover {
+  background-color: #0d8bf2;
+}
+
+.back-to-main-button i {
+  margin-right: 5px;
+}
+</style>
+<body>
+    <h1>Feeding Page</h1>
+    <a th:href="@{/mainpageclient}" class="back-to-main-button">
+      <i class="fas fa-arrow-left"></i>
+      Back to Client Page
+    </a>
+    <table>
+      <tr>
+          <th>Dry Food</th>
+          <th>Canned Food</th>
+          <th>Raw Food</th>
+      </tr>
+      <tr>
+          <td>
+              <p>
+                Our selection of dry food is processed and has low moisture content. It offers convenience with a long shelf life. This option promotes dental health and is suitable for pets with specific dietary requirements.
+              </p>
+          </td>
+          <td>
+              <p>
+                For a more enticing meal, we offer canned food. It comes in sealed cans or pouches and has a soft and moist texture. Canned food is highly palatable and provides essential hydration for your pets. It is an excellent choice for pets with dental issues or those requiring increased moisture in their diet.
+              </p>
+          </td>
+          <td>
+              <p>
+                If you prefer a natural approach, we also provide raw food options. This consists of uncooked, raw ingredients such as meat, bones, fruits, and vegetables. Raw food offers potential benefits such as improved digestion, healthier skin and coat, and increased energy. However, it requires careful consideration of nutritional balance and food safety.
+              </p>
+          </td>
+      </tr>
+  </table>
+  <a class="reserve_link" th:href="@{/showVCNewFeedingForm}">Reserve Now</a>
+    <h2>Feeding's List </h2>
+<table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Pet</th>
+            <!-- Add more table headers as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:if="${ListFeeding.isEmpty()}">
+            <td colspan="5">No feedings's menu selected</td>
+        </tr>
+        <tr th:each="feeding : ${ListFeeding}">
+            <td th:text="${feeding.typeFood}"></td>
+            <td th:text="${feeding.pet.name}"></td>
+            <td>
+                <a  class="delete-link" th:href="@{/fed/delete/{id}(id=${feeding.id})}">Delete Menu</a>
+            </td>
+            <!-- Add more table cells as needed -->
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

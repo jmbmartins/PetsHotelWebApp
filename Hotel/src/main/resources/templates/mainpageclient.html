@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Pet Hotel - Client Page</title>
+</head>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Center the content */
+div {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* Style the back-to-main-button */
+/* Style the back-to-main-button */
+.back-to-main-button {
+  display: inline-block;
+  padding: 10px;
+  background-color: #0077cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.25em;
+}
+
+.back-to-main-button i {
+  margin-right: 5px;
+}
+
+.back-to-main-button:hover {
+  background-color: #005ea8;
+}
+/* Style the hotel-info section */
+.hotel-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hotel-info h1 {
+  font-size: 2.5em;
+  margin-top: 0;
+}
+
+.hotel-info p {
+  font-size: 1.2em;
+}
+
+/* Style the service-list section */
+.service-list {
+  margin-bottom: 20px;
+}
+
+.service-list h2 {
+  font-size: 1.8em;
+}
+
+.service-item {
+  margin-bottom: 10px;
+}
+
+.service-item a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.service-item a:hover {
+  text-decoration: underline;
+}
+
+/* Style the personal information section */
+table {
+  margin-bottom: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+table td:first-child {
+  font-weight: bold;
+  width: 120px;
+}
+
+/* Style the new_client form section */
+form {
+  margin-top: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+form button[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.change-info-link {
+  /* Your CSS properties here */
+  /* For example: */
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.delete-link {
+  color: red;
+  text-decoration: none;
+}
+
+.delete-link:hover {
+  text-decoration: underline;
+}
+.reserve_link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ffcc00;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.reserve_link:hover {
+  background-color: #ff9900;
+}
+
+
+
+form button[type="submit"]:hover {
+  background-color: #005ea8;
+}
+</style>
+<body>
+  <div>
+
+    <a th:href="@{/mainpage}" class="back-to-main-button" style="position: absolute; top: 10px; right: 10px;">
+      <i class="fas fa-arrow-left"></i>
+      Logout
+    </a>
+
+  <div class="hotel-info">
+      <h1>Welcome to Pet's Hotel, <span th:text="${user.email}"></span>!</h1>
+      <p>Where pets are pampered with love and care.</p>
+  </div>
+
+  <div class="service-list">
+    <h2>Our Services</h2>
+    <ul>
+        <li class="service-item"><a th:href="@{/vcbooking}">Booking</a></li>
+        <li class="service-item"><a th:href="@{/vcfeeding}">Feeding</a></li>
+    </ul>
+</div>
+
+    <h2>Personal Information</h2>
+
+    <div th:if="${client != null}">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td th:text="${client.name}"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td th:text="${client.address}"></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td th:text="${client.phone}"></td>
+            </tr>
+        </table>
+        <a class="change-info-link" th:href="@{/vcupdateclient/{id}(id=${client.id})}">Change Information</a>
+
+
+    </div>
+
+    <div th:if="${new_client != null}">
+        <h3>No client information found.</h3>
+        <!-- Add your form to create a new client here -->
+        <form th:object="${new_client}" th:action="@{/vcsaveClient}" method="post">
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" required/><br/>
+            <label>Address:</label>
+            <input type="text" th:field="*{address}" required/><br/>
+            <label>Phone:</label>
+            <input type="text" th:field="*{phone}" required/><br/>
+            <button type="submit">Insert information</button>
+        </form>
+    </div>
+
+    <h2>Pet's list</h2>
+    <a class="reserve_link" th:href="@{/showVCNewPetForm}">Add Pet</a>
+    <div th:if="${pets != null}">
+      <table>
+          <tr>
+              <th>Age</th>
+              <th>Name</th>
+              <th>Race</th>
+              <th>Specie</th>
+          </tr>
+          <tr th:each="pet : ${pets}">
+            <td th:text="${pet.age}" style="text-align: center;"></td>
+            <td th:text="${pet.name}" style="text-align: center;"></td>
+            <td th:text="${pet.race}" style="text-align: center;"></td>
+            <td th:text="${pet.specie}" style="text-align: center;"></td>
+            <td>
+                <a  class="delete-link" th:href="@{/pets/delete/{id}(id=${pet.id})}">Delete</a>
+                <a class="change-info-link" th:href="@{/vcupdatepet/{id}(id=${pet.id})}">Update</a>
+            </td>
+        </tr>        
+      </table>
+
+  </div>
+  
+
+    <div th:if="${pets == null}">
+        <h3>No pets associated</h3>
+    </div>
+</div>
+</body>
+</html>
