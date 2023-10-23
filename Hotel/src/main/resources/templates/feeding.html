@@ -109,7 +109,7 @@ thead {
 </head>
 <body>
 <div>
-  <a th:href="@{/mainpage}" class="back-to-main-button">
+  <a th:href="@{/}" class="back-to-main-button">
     <i class="fas fa-arrow-left"></i>
     Back to Main Menu
   </a>
@@ -131,6 +131,7 @@ thead {
         <td th:text="${feeding.pet.age}"></td>
         <td th:text="${feeding.typeFood}"></td>
  				<td>
+ 					<a th:href="@{/showUpdateFeedingForm/{id}(id=${feeding.id})}" >Update</a>
  					<a th:href="@{/deleteFeeding/{id}(id=${feeding.id})}" >Delete</a>
  				</td>
  			</tr>

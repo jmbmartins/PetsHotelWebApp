@@ -1,8 +1,6 @@
 package com.example.demo;
 
 
-import java.util.Objects;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -34,26 +32,7 @@ public class Pet {
 
     // Getters and Setters
 
-    @Override
-	public int hashCode() {
-		return Objects.hash(age, client, id, name, race, specie);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pet other = (Pet) obj;
-		return age == other.age && Objects.equals(client, other.client) && Objects.equals(id, other.id)
-				&& Objects.equals(name, other.name) && Objects.equals(race, other.race)
-				&& Objects.equals(specie, other.specie);
-	}
-
-	public Long getId() {
+    public Long getId() {
         return id;
     }
 

@@ -109,11 +109,12 @@ thead {
 </head>
 <body>
 <div>
-  <a th:href="@{/mainpage}" class="back-to-main-button">
+  <a th:href="@{/}" class="back-to-main-button">
     <i class="fas fa-arrow-left"></i>
     Back to Main Menu
   </a>
  	<h1> Lodging List </h1>
+ 	<a th:href="@{/showNewLodgingForm}"  class="add-customer-link">Booking</a>
  	<table border="1" class="table table-striped table-responsive-md">
  		<thead>
  			<tr>
@@ -132,6 +133,7 @@ thead {
         <td th:text="${lodging.checkInDate}"></td>
         <td th:text="${lodging.checkOutDate}"></td>
  				<td>
+ 					<a th:href="@{/showUpdateLodgingForm/{id}(id=${lodging.id})}" >Update</a>
  					<a th:href="@{/deleteLodging/{id}(id=${lodging.id})}" >Delete</a>
  				</td>
  			</tr>

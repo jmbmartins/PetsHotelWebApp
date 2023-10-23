@@ -109,7 +109,7 @@ thead {
 </head>
 <body>
 <div>
-  <a th:href="@{/mainpage}" class="back-to-main-button">
+  <a th:href="@{/}" class="back-to-main-button">
     <i class="fas fa-arrow-left"></i>
     Back to Main Menu
   </a>
@@ -119,6 +119,8 @@ thead {
  		<thead>
  			<tr>
         <th>Room Number</th>
+ 				<th>Room Capacity</th>
+ 				<th>Room Disponibility</th>
 				<th>Room Price</th>
         <th>Room Type</th>
  			</tr>
@@ -126,6 +128,8 @@ thead {
  		<tbody>
  			<tr th:each="room : ${ListRooms}">
         <td th:text="${room.number}"></td>
+ 				<td th:text="${room.capacity}"></td>
+ 				<td th:text="${room.disponibility}"></td>
 				<td th:text="${room.price}"></td>
         <td th:text="${room.type}"></td>
  				<td>

@@ -1,23 +1,69 @@
-# SD
-Trabalho prático de SD - Aplicação Web em Jakarta EE, usando a framework Spring (T8 – Hotel para animais)
+# Practical Work - Web Application with Jakarta EE using the Spring Framework
 
-## Estruturação 
+Branch 'final' to locate yourself in the **final version**.
 
-### Serviços a Fornecer
-- [ ] Hospedagem: oferecer diferentes tipos de quartos e acomodações para os animais, com diferentes níveis de conforto e serviços adicionais, como TV e brinquedos. [João]
-- [x] Alimentação: oferecer diferentes tipos de alimentos para os animais, dependendo de suas necessidades nutricionais e preferências. [Luís]
-- **Extra** -> cuidados Veterinários: oferecer serviços de saúde, como consultas e exames, vacinação, tratamento de doenças e feridas, entre outros.
+This project consists of a web application that accesses RESTful web services developed with the Spring Framework. The application allows managing the services provided by an **Animal Hotel**. Data persistence is done through MySQL.
 
-### Entidades
-- [x] Cliente: cada proprietário de animal de estimação é um cliente, com informações como nome, endereço, telefone e e-mail. [João]
-- [x] Animal: cada animal hospedado no hotel é uma entidade, com informações como nome, espécie, raça e idade. [João]
-- [x] Quarto: cada quarto ou acomodação oferecido pelo hotel é uma entidade, com informações como número, tipo, capacidade, disponibilidade e preço. [Luís]
 
-### Conjuntos de Estatísticas
-- [ ] Número de hospedagens por espécie de animal. [João]
-- [ ] Receita gerada por tipo de serviço. [Luís]
-- **Extra** -> Número de agendamentos de serviços por cliente.
 
+## Application Features
+
+- Profile Selection: The application allows choosing between two user profiles, Hotel Administrator and Customer.
+- Customer Management: The application allows registering, viewing, updating, and deleting hotel customers.
+- Animal Management: Through the application, it is possible to register the animals staying at the hotel, including details such as name, species, age, and breed. Additionally, it is possible to associate each animal with a specific customer to facilitate tracking.
+- Room Management: The application allows managing the available rooms in the hotel, including information such as room number, price, and type.
+- Reservations and Accommodation: With the application, it is possible to create and manage reservations for hotel customers. Through the association between customers, animals, and rooms, it is possible to record the check-in and check-out dates of each stay and choose the room type, facilitating control and organization of reservations.
+- Feeding: In the application, it is possible to associate the feeding type with each pet. There are different categories and respective qualities, such as "Dry Food," "Canned Food," and "Raw Food." The user has the possibility to make a reservation for their pet based on the desired feeding type.
+- Statistics and Reports: In addition to the management functionalities, the application provides features for generating statistics and reports on the hotel's operation. This includes information such as the number of stays per species in the hotel, from all time or selecting a date, and also the number of animals that have an associated menu.
+
+## Technologies Used
+
+- Jakarta EE (formerly known as Java EE)
+- Spring Framework
+- MySQL
+
+## Configuration Environment
+
+To run this application, follow the instructions below:
+
+1. Make sure that the Java Development Kit (JDK) is installed. You can download it from: [Download JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+
+2. Install Apache Maven. You can download Maven from: [Download Maven](https://maven.apache.org/download.cgi). Follow the appropriate installation instructions for your operating system.
+
+3. Configure the MySQL Server and create a database for the application. You can download MySQL from: [Download MySQL](https://dev.mysql.com/downloads/installer/). Follow the installation instructions and create an empty database for the application.
+
+4. Clone this repository to your local development environment:
+
+```bash
+git clone [repository-url]
+```
+
+5. Locate yourself on branch named 'final'.
+
+6. In the src/main/resources/application.properties file, configure the database connection properties. Make sure to provide the correct URL, username, and password.
+
+7. Open the terminal or command prompt, navigate to the root directory of the cloned project, and run the following command to compile and run the application:
+
+```bash
+mvn spring-boot:run
+```
+
+8. The application will start and will be available at localhost:8080.
+
+
+## Demonstration Video
+
+Click the image below to watch a demo video showcasing the features and functionality of the application:
+
+[![Pets Hotel Demonstration Video](https://img.youtube.com/vi/ymPkIk0Zl0Y/0.jpg)](https://www.youtube.com/watch?v=ymPkIk0Zl0Y)
+
+
+
+In the demo, we have divided the presentation into two parts to provide a clear focus on user experience and admin experience separately.
+
+
+
+Feel free to reach out if you have any questions or need further assistance.
 
 
 
