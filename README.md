@@ -1,6 +1,6 @@
 # Practical Work - Web Application with Jakarta EE using the Spring Framework
 
-Branch 'final' to locate yourself in the **final version**.
+Branch 'agrupar-perfis' to locate yourself in the **final version**.
 
 This project consists of a web application that accesses RESTful web services developed with the Spring Framework. The application allows managing the services provided by an **Animal Hotel**. Data persistence is done through MySQL.
 
@@ -14,7 +14,7 @@ This project consists of a web application that accesses RESTful web services de
 - Room Management: The application allows managing the available rooms in the hotel, including information such as room number, price, and type.
 - Reservations and Accommodation: With the application, it is possible to create and manage reservations for hotel customers. Through the association between customers, animals, and rooms, it is possible to record the check-in and check-out dates of each stay and choose the room type, facilitating control and organization of reservations.
 - Feeding: In the application, it is possible to associate the feeding type with each pet. There are different categories and respective qualities, such as "Dry Food," "Canned Food," and "Raw Food." The user has the possibility to make a reservation for their pet based on the desired feeding type.
-- Statistics and Reports: In addition to the management functionalities, the application provides features for generating statistics and reports on the hotel's operation. This includes information such as the number of stays per species in the hotel, from all time or selecting a date, and also the number of animals that have an associated menu.
+- Statistics and Reports: In addition to the management functionalities, the application provides features for generating statistics and reports on the hotel's operation. This includes information such as the number of stays per species in the hotel, from all time or selecting a date.
 
 ## Technologies Used
 
