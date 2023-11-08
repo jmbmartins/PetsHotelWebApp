@@ -1,6 +1,6 @@
 # Practical Work - Web Application with Jakarta EE using the Spring Framework
 
-Branch 'final' to locate yourself in the **final version**.
+Branch 'agrupar-perfis' to locate yourself in the **final version** of the project.
 
 This project consists of a web application that accesses RESTful web services developed with the Spring Framework. The application allows managing the services provided by an **Animal Hotel**. Data persistence is done through MySQL.
 
